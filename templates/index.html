@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FankyGPT</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>FankyGPT (Offline)</h1>
+    <form method="post">
+        <textarea name="prompt" placeholder="Tanya apa saja..." required></textarea>
+        <button type="submit">Kirim</button>
+    </form>
+    {% if response %}
+    <div class="output">
+        <h3>Jawaban:</h3>
+        <p>{{ response }}</p>
+    </div>
+    {% endif %}
+</body>
+</html>
