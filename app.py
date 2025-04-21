@@ -28,7 +28,7 @@ def download_model():
 @app.route("/", methods=["GET", "POST"])
 def index():
     download_model()  # Cek dan unduh model dulu
-    download_llamaclinya()
+    # download_llamaclinya()
     response = ""
     if request.method == "POST":
         user_input = request.form["prompt"]
@@ -41,4 +41,5 @@ def index():
     return render_template("index.html", response=response)
 
 if __name__ == "__main__":
+    download_llamaclinya
     app.run(host="0.0.0.0", port=5000)
