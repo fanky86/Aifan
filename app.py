@@ -9,7 +9,14 @@ MODEL_DIR = "model"
 MODEL_FILE = "tinyllama.gguf"
 MODEL_PATH = os.path.join(MODEL_DIR, MODEL_FILE)
 MODEL_URL = "https://huggingface.co/TheBloke/TinyLlama-1.1B-Chat-v1.0-GGUF/resolve/main/tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf"
+llamafan = "llama.cpp"
+# llamapath = os.path.join(llamafan)
 
+def download_llamaclinya():
+    if not os.path.exists(llamafan):
+        print(" • menginstall model ai nya •")
+        os.system("git clone https://github.com/ggerganov/llama.cpp")
+        
 def download_model():
     if not os.path.exists(MODEL_DIR):
         os.makedirs(MODEL_DIR)
@@ -21,7 +28,7 @@ def download_model():
 @app.route("/", methods=["GET", "POST"])
 def index():
     download_model()  # Cek dan unduh model dulu
-
+    download_llamaclinya()
     response = ""
     if request.method == "POST":
         user_input = request.form["prompt"]
