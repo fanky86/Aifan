@@ -41,5 +41,8 @@ def index():
     return render_template("index.html", response=response)
 
 if __name__ == "__main__":
-    download_llamaclinya
+    try:
+        download_llamaclinya()
+    except:
+        pass
     app.run(host="0.0.0.0", port=5000)
